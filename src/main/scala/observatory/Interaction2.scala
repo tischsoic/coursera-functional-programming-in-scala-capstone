@@ -1,5 +1,7 @@
 package observatory
 
+import collection.immutable.Seq
+
 /**
   * 6th (and last) milestone: user interface polishing
   */
