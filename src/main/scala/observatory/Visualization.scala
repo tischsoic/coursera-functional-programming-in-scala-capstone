@@ -25,7 +25,7 @@ object Visualization extends VisualizationInterface {
     else inverseDistanceWeighting(distanceTemp)
   }
 
-  def inverseDistanceWeighting(distanceTemp: Iterable[(Double, Temperature)])(implicit p: Int = 2): Temperature = {
+  def inverseDistanceWeighting(distanceTemp: Iterable[(Double, Temperature)])(implicit p: Int = 3): Temperature = {
     def weight(distance: Double): Double = 1 / Math.pow(distance, p)
     val (numerator, denominator) = distanceTemp
       .aggregate((0d, 0d))(
@@ -102,6 +102,7 @@ object Visualization extends VisualizationInterface {
     val pixels = new Array[Pixel](w * h)
 
     for (lat <- 90 to -89 by -1) {
+//      println("!!!!!!!!!!!!!!!! x", lat)
       for (lon <- -180 to 179) {
         val temperature = predictTemperature(temperatures, Location(lat, lon))
         val color = interpolateColor(colors, temperature)

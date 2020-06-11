@@ -84,20 +84,39 @@ class VisualizationTestSuite extends VisualizationTest {
   }
 
   @Test def `'visualize'`: Unit = {
-    val location2 = Location(0, 10)
-    val location3 = Location(0, -30)
-    val (u1, u2) = (10d, 100d)
-    val temperatures: List[(Location, Temperature)] = List(
-      (location2, u1),
-      (location3, u2)
-    )
-    val colors: List[(Temperature, Color)] = List(
-      (u1, Color(255, 0, 0)),
-      (u2, Color(255, 255, 0))
-    )
-    val image = Visualization.visualize(temperatures, colors)
+//    val a = Extraction.locateTemperatures(2015, "/stations.csv", "/2015.csv")
+//    val temperatures2 = Extraction.locationYearlyAverageRecords(a)
 
-    image.output(new java.io.File("visualization.png"))
+//    val location2 = Location(0, 10)
+//    val location3 = Location(0, -30)
+//    val (u1, u2) = (10d, 100d)
+//    val temperatures: List[(Location, Temperature)] = List(
+//      (location2, u1),
+//      (location3, u2)
+//    )
+//    val colors: List[(Temperature, Color)] = List(
+//      (u1, Color(255, 0, 0)),
+//      (u2, Color(255, 255, 0))
+//    )
+//    val image = Visualization.visualize(temperatures, colors)
+    println("!!!!!!!!!!!!!!!! 1111")
+    val a = Extraction.locateTemperatures(2015, "/stations.csv", "/2015.csv")
+    println("!!!!!!!!!!!!!!!! 2222")
+    val temperatures2 = Extraction.locationYearlyAverageRecords(a)
+    println("!!!!!!!!!!!!!!!! 3333")
+    val colors2: List[(Temperature, Color)] = List(
+      (60, Color(255, 255, 255)),
+      (32, Color(255, 0, 0)),
+      (12, Color(255, 255, 0)),
+      (0, Color(0, 255, 255)),
+      (-15, Color(0, 0, 255)),
+      (-27, Color(255, 0, 255)),
+      (-50, Color(33, 0, 107)),
+      (-60, Color(0, 0, 0))
+    )
+    val image2 = Visualization.visualize(temperatures2, colors2)
+    println("!!!!!!!!!!!!!!!! 444")
+    image2.output(new java.io.File("visualization3.png"))
   }
 
 

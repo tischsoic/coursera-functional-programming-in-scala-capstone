@@ -20,7 +20,11 @@ object Extraction extends ExtractionInterface {
       .builder()
       .appName("Observatory")
       .master("local")
-      .config("spark.driver.bindAddress", "localhost")
+//      .config("spark.driver.host","172.18.1.194")
+//      .config("spark.driver.bindAddress","192.168.132.1")
+      .config("spark.driver.host", "localhost")
+//      .config("spark.driver.port", "51265")
+//      .config("spark.driver.bindAddress", "localhost")
       .getOrCreate()
   val sc: SparkContext = spark.sparkContext
 
